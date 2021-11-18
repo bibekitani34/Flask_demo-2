@@ -286,7 +286,7 @@
             <div class="inbox_msg">
 
                 <div class="mesgs">
-                    <div class="msg_history">
+                    <div class="msg_history" style="max-height: 40vh;">
                         <div class="incoming_msg">
                             <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                             <div class="received_msg">
@@ -308,11 +308,11 @@
                     </div>
 
 
-                    <form action="/" method="POST" class="form-container" id="todo-form">
+                    <form method="POST" class="form-container" id="todo-form">
 
 
                         <!-- <label for="msg"><b>Message</b></label>  -->
-                        <textarea placeholder="Type your questions.." name="questions" id="todo" required></textarea>
+                        <textarea placeholder="Type your questions.." name="questions" id="question" required></textarea>
 
 
                         <button type="submit" class="btn send">Send</button>
@@ -328,20 +328,22 @@
 
 
         <script>
-            // $(document).on('submit', '#todo-form', function(e) {
-            //     console.log('hello');
-            //     e.preventDefault();
-            //     $.ajax({
-            //         type: 'POST',
-            //         url: '/',
-            //         data: {
-            //             todo: $("#todo").val()
-            //         },
-            //         success: function() {
-            //             alert('saved');
-            //         }
-            //     })
-            // });
+            $(".btn.send").click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '{{url_for("submit")}}',
+                    data: {
+                        question: $("#question").val()
+                    },
+                    success: function(data) {
+                        $("#question").val('')
+                        $(".msg_history").append(data)
+                        $('.msg_history').scrollTop($('.msg_history')[0].scrollHeight);
+
+                    }
+                })
+            });
         </script>
 </body>
 
