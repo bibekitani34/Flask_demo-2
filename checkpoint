@@ -1,2 +1,2 @@
-model_checkpoint_path: "/Users/bibekitani/Desktop/Flask_demo 2/model.tflearn"
-all_model_checkpoint_paths: "/Users/bibekitani/Desktop/Flask_demo 2/model.tflearn"
+model_checkpoint_path: "/Users/bibekitani/Desktop/Flask_demo-2/model.tflearn"
+all_model_checkpoint_paths: "/Users/bibekitani/Desktop/Flask_demo-2/model.tflearn"
